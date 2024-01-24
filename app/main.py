@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 
 
 def get_clean_data():
-    data=pd.read_csv(r'C:\Users\hp\Victor-Files\Supervised_Learning\Cancer-Prediction\data\data.csv')
+    data=pd.read_csv(r'data\data.csv')
     
     data=data.drop(['Unnamed: 32','id'],axis=1)
     data['diagnosis']=data['diagnosis'].map({'M':1,'B':0})
@@ -136,8 +136,8 @@ def get_radar_chart(input_data):
     return fig
 
 def add_predictions(input_data):
-    model=joblib.load(r'C:\Users\hp\Victor-Files\Supervised_Learning\Cancer-Prediction\model\model.joblib')
-    scaler=joblib.load(r'C:\Users\hp\Victor-Files\Supervised_Learning\Cancer-Prediction\model\scaler.joblib')
+    model=joblib.load(r'model\model.joblib')
+    scaler=joblib.load(r'model\scaler.joblib')
     
     input_array=np.array(list(input_data.values())).reshape(1,-1)
     
